@@ -1,3 +1,5 @@
+# Antonio Mario Pio Frioli RM86639 5ECR
+
 #  ESP32 FreeRTOS Supervisor System
 
 Sistema multitarefa para ESP32 usando FreeRTOS. O projeto divide responsabilidades em três módulos principais: gerador de dados, receptor e supervisor com um watchdog cooperativo que reinicia o dispositivo em caso de falha de tarefas críticas.
