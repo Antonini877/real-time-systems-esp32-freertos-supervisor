@@ -40,7 +40,7 @@ Diagrama simplificado:
         +-----------------+                    +-----------------+
         |                                                      |
         |                                                      |
-+---------------------------+          +---------------------------+
++---------------------------+          +---------------------------+          +---------------------------+
 |  Gerador (vTaskGeracao)   |   --->   |  Queue (Buffer de Dados)  |   --->   |  Receptor (vTaskRecepcao) |
 |  - Gera inteiros          |          |  - Capacidade: 5 itens    |          |  - Transmite e valida      |
 |  - Alimenta watchdog      |          |  - Comunicação entre tasks|          |  - Reporta falhas          |
