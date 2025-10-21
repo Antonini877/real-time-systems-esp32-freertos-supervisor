@@ -1,4 +1,4 @@
-# 🧠 ESP32 FreeRTOS Supervisor System
+#  ESP32 FreeRTOS Supervisor System
 
 Sistema multitarefa para ESP32 usando FreeRTOS. O projeto divide responsabilidades em três módulos principais: gerador de dados, receptor e supervisor com um watchdog cooperativo que reinicia o dispositivo em caso de falha de tarefas críticas.
 
@@ -29,9 +29,26 @@ Supervisor monitora Gerador e Receptor (recebe feeds de tick count)
 
 Diagrama simplificado:
 
-Gerador (vTaskGeracaoDados) --> Queue --> Receptor (vTaskRecepcaoDados)  
-                     \                                /
-                      \--------> Supervisor (vTaskSupervisao) <--------
+                   +----------------------------------+
+                   |      Supervisor (vTaskSupervisao)|
+                   |    - Monitora tarefas            |
+                   |    - Gerencia Watchdog           |
+                   +----------------------------------+
+                          ^                    ^
+                          |                    |
+                          |                    |
+        +-----------------+                    +-----------------+
+        |                                                      |
+        |                                                      |
++---------------------------+          +---------------------------+
+|  Gerador (vTaskGeracao)   |   --->   |  Queue (Buffer de Dados)  |   --->   |  Receptor (vTaskRecepcao) |
+|  - Gera inteiros          |          |  - Capacidade: 5 itens    |          |  - Transmite e valida      |
+|  - Alimenta watchdog      |          |  - Comunicação entre tasks|          |  - Reporta falhas          |
++---------------------------+          +---------------------------+          +---------------------------+
+        \                                                                 /
+         \---------------------------------------------------------------/
+                             Comunicação com Supervisor
+
 
 ---
 
