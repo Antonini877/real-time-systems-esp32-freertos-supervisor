@@ -28,7 +28,7 @@ Gerador -> Queue (buffer de 5 ints) -> Receptor
 Supervisor monitora Gerador e Receptor (recebe feeds de tick count)
 
 Diagrama simplificado:
-´´´bash
+```bash
                    +----------------------------------+
                    |      Supervisor (vTaskSupervisao)|
                    |    - Monitora tarefas            |
@@ -49,7 +49,7 @@ Diagrama simplificado:
          \---------------------------------------------------------------/
                              Comunicação com Supervisor
 
-´´´
+```
 ---
 
 ## Tarefas principais
